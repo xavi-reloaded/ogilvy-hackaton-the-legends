@@ -5,7 +5,7 @@ import {UserAccount} from "../../models/UserAccount";
 import {Session} from "../../models/Session";
 import {LoginObject} from "../../models/LoginObject";
 import {LoaderService} from "../../providers/LoaderService";
-import {AuthService} from "../../providers/AuthService";
+import {FakeAuthService} from "../../providers/FakeAuthService";
 import {ServicesPage} from "../services/services";
 import {AuthorizationService} from "../../providers/AuthorizationService";
 import {ValidationErrorAppException} from "../../exceptions/ValidationErrorAppException";
@@ -25,7 +25,7 @@ export class RegisterPage {
               private menu: MenuController,
               private userAccountService: UserAccountService,
               private loaderService: LoaderService,
-              private authService: AuthService,
+              private authService: FakeAuthService,
               private toastCtrl: ToastController,
               private authorizationService: AuthorizationService) {
   }

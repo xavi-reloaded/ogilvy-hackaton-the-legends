@@ -3,12 +3,14 @@ import {Keyboard, MenuController, NavController, ToastController} from 'ionic-an
 import { RegisterPage } from '../register/register';
 import {LoginObject} from "../../models/LoginObject";
 import {Session} from "../../models/Session";
-import {AuthService} from "../../providers/AuthService";
 import {AuthorizationService} from "../../providers/AuthorizationService";
 import {ServicesPage} from "../services/services";
 import {LoaderService} from "../../providers/LoaderService";
 import {AppException} from "../../exceptions/AppException";
 import {ValidationErrorAppException} from "../../exceptions/ValidationErrorAppException";
+
+import {FakeAuthService} from "../../providers/FakeAuthService";
+import {UserAccount} from "../../models/UserAccount";
 
 @Component({
   selector: 'page-login',
@@ -21,7 +23,7 @@ export class LoginPage {
 
   constructor(private navCtrl: NavController,
               private keyboard: Keyboard,
-              private authService: AuthService,
+              private authService: FakeAuthService,
               private authorizationService: AuthorizationService,
               private loaderService: LoaderService,
               private toastCtrl: ToastController,
@@ -42,9 +44,21 @@ export class LoginPage {
     if(this.keyboard) {
       this.keyboard.close();
     }
-    this.authService.login(this.loginUser).subscribe(
-        session => this.loginCorrect(session),
-        error => this.loginError(<any>error));
+    // this.authService.login(this.loginUser).subscribe(
+    //     session => this.loginCorrect(session),
+    //     error => this.loginError(<any>error));
+
+    var session = new Session();
+    session.id="88e852ab-5216-410b-81ce-76614e7c27f7";
+    session.token="eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoMCIsInVzZXJJZCI6Ijg4ZTg1MmFiLTUyMTYtNDEwYi04MWNlLTc2NjE0ZTdjMjdmNyJ9.amgeunrnh6LFmaeSdhyW2KhJ477Aenz8J_laxQ5Jr1w";
+    var userAccount = new UserAccount();
+    userAccount.firstName='Jonh';
+    userAccount.lastName='Dad';
+    userAccount.email=this.loginUser.email;
+    userAccount.password='1234';
+    session.userAccount = userAccount;
+
+    this.loginCorrect(session);
   }
 
   loginCorrect(session: Session): void {

@@ -6,19 +6,21 @@ import {HttpClient} from "./HttpClient";
 import {BaseService} from "./BaseService";
 import {IAuthService} from "./IAuthService";
 
+
 @Injectable()
-export class AuthService extends BaseService implements IAuthService{
+export class FakeAuthService extends BaseService implements IAuthService{
 
   constructor(private http: HttpClient) {
     super();
+    this.forcedResponse = '';
   }
 
   private basePath = 'authorize';
+  private forcedResponse: string;
 
   login(loginObj: LoginObject): Observable<Session> {
     try {
       loginObj.validate();
-      return this.http.post(this.basePath + '/login', loginObj).catch(this.castExceptions);
     }
     catch (e) {
       return Observable.throw(e);
@@ -26,10 +28,16 @@ export class AuthService extends BaseService implements IAuthService{
   }
 
   logout(): Observable<boolean> {
-    return this.http.post(this.basePath + '/logout', {}).catch(this.castExceptions);
+    return Observable.create(observer => {
+      observer.next(true);
+      observer.complete();
+    });
   }
 
   refreshToken(): Observable<Session> {
-    return this.http.get(this.basePath + '/refreshtoken').catch(this.castExceptions);
+    return Observable.create(observer => {
+      observer.next(true);
+      observer.complete();
+    });
   }
 }

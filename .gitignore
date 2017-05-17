@@ -3,5 +3,5 @@
 .idea/
 /plugins/
 /www/
-curler-mobile.iml
+*.iml
 src/environment-variables/env-args.ts

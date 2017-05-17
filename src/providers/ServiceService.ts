@@ -13,6 +13,9 @@ export class ServiceService {
   private basePath = 'service';
 
   get(serviceType: ServiceType): Observable<PagedListService> {
-    return this.http.get(this.basePath + '/' + serviceType.id);
+    return Observable.create(observer => {
+      observer.next(new PagedListService());
+      observer.complete();
+    });
   }
 }

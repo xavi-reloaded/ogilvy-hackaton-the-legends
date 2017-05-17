@@ -12,7 +12,6 @@ import { RegisterPage } from '../pages/register/register';
 
 // PROVIDERS - SERVICES
 import { HttpClient } from "../providers/HttpClient";
-import { AuthService } from "../providers/AuthService";
 import { UserAccountService } from "../providers/UserAccountService";
 import {AuthorizationService} from "../providers/AuthorizationService";
 import {LocalStorageService} from "../providers/LocalStorageService";
@@ -25,6 +24,7 @@ import {ServiceService} from "../providers/ServiceService";
 import {ServiceTypeService} from "../providers/ServiceTypeService";
 import {EnvironmentsModule} from "../environment-variables/environment-variables.module";
 import {InputErrorModule} from "../components/input-error/input-error.module";
+import {FakeAuthService} from "../providers/FakeAuthService";
 
 
 
@@ -61,7 +61,7 @@ import {InputErrorModule} from "../components/input-error/input-error.module";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClient,
-    AuthService,
+    FakeAuthService,
     AuthorizationService,
     UserAccountService,
     LocalStorageService,

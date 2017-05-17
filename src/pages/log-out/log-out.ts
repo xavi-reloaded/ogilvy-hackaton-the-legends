@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {LoginPage} from "../login/login";
-import {AuthService} from "../../providers/AuthService";
 import {LoaderService} from "../../providers/LoaderService";
 import {AuthorizationService} from "../../providers/AuthorizationService";
+import {FakeAuthService} from "../../providers/FakeAuthService";
 
 @Component({
   selector: 'page-log-out',
@@ -12,7 +12,7 @@ import {AuthorizationService} from "../../providers/AuthorizationService";
 export class LogOutPage {
   
   constructor(public navCtrl: NavController,
-              private authService: AuthService,
+              private authService: FakeAuthService,
               private loaderService: LoaderService,
               private authorizationService: AuthorizationService) {
   
@@ -20,9 +20,8 @@ export class LogOutPage {
 
   ionViewDidLoad() {
     this.loaderService.on();
-    this.authService.logout().subscribe(
-      response => this.logoutSuccess(response),
-      error => this.logoutError(<any>error));
+    this.authService.logout();
+    this.logoutSuccess(true);
   }
 
   logoutSuccess(response: boolean): void{

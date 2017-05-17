@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthorizationService} from "../../providers/AuthorizationService";
 import {NavController} from "ionic-angular";
-import {AuthService} from "../../providers/AuthService";
+import {FakeAuthService} from "../../providers/FakeAuthService";
 import {ActivitiesPage} from "../activities/activities";
 import {InitialConfigNamePage} from "../initial-config/initial-config-name/initial-config-name";
 import {LoginPage} from "../login/login";
@@ -16,7 +16,7 @@ import {ServicesPage} from "../services/services";
 export class StartPage implements OnInit{
 
   constructor(public authorizationService: AuthorizationService,
-              public authService : AuthService,
+              public authService : FakeAuthService,
               public navCtrl: NavController,
               private userDeviceService : UserDeviceService,
               private splashScreen: SplashScreen) {
