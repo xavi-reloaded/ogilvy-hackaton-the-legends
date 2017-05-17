@@ -1,0 +1,32 @@
+page-services {
+  ion-content {
+    ion-list {
+      &.list-ios, &.list-md {
+        margin-bottom: 0;
+        ion-item {
+          &.item-ios, &.item-md {
+            background-color: #e1e1e1;
+            border-bottom: 1px solid #c8c7cc;
+            color: #7c7e86;
+            ion-avatar {
+              img {
+                width: 100px;
+                height: 100px;
+                background-color: #c2c2c2;
+              }
+            }
+            &.item-block {
+              .item-inner {
+                border-bottom: 0;
+                text-align: center;
+              }
+            }
+            &[sub-item]{
+              background-color: #f1f1f1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

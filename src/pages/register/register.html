@@ -1,0 +1,49 @@
+<ion-content padding-left padding-right>
+    <form (ngSubmit)="onSignUp()" novalidate>
+        <ion-grid>
+            <div container-image>
+                <img src="{{'./assets/img/no-img.png'}}">
+            </div>
+            <div container-title>
+                Create new your account
+            </div>
+
+            <div padding-left padding-right container-form>
+                <ion-item #firstNameId>
+                    <ion-label> <div class="form-bullet"></div> </ion-label>
+                    <ion-input clearInput type="text" name="firstName" [(ngModel)]="userAccount.firstName" placeholder="Name"></ion-input>
+                </ion-item>
+                <input-error [errors]="errors.firstName" [containerInput]="firstNameId"></input-error>
+
+                <ion-item #lastNameId>
+                    <ion-label> <div class="form-bullet"></div> </ion-label>
+                    <ion-input clearInput type="text" name="lastName" [(ngModel)]="userAccount.lastName" placeholder="Last name"></ion-input>
+                </ion-item>
+                <input-error [errors]="errors.lastName" [containerInput]="lastNameId"></input-error>
+
+                <ion-item #emailId>
+                    <ion-label> <div class="form-bullet"></div> </ion-label>
+                    <ion-input clearInput type="text" name="email" [(ngModel)]="userAccount.email" placeholder="Email"></ion-input>
+                </ion-item>
+                <input-error [errors]="errors.email" [containerInput]="emailId"></input-error>
+
+                <ion-item #passwordId>
+                    <ion-label> <div class="form-bullet"></div> </ion-label>
+                    <ion-input clearInput type="password" name="password" [(ngModel)]="userAccount.password" placeholder="Password"></ion-input>
+                </ion-item>
+                <input-error [errors]="errors.password" [containerInput]="passwordId"></input-error>
+
+                <button button-sign-up ion-button round block outline no-shadow color="light" type="submit">
+                    SIGN UP
+                </button>
+            </div>
+
+            <div container-sign-in>
+                <button type="button" button-sign-in ion-button round block outline link no-shadow color="light" clear
+                        (click)="goBackToLogin()">
+                    SIGN IN
+                </button>
+            </div>
+        </ion-grid>
+    </form>
+</ion-content>

@@ -1,0 +1,9 @@
+ion-header{
+  ion-navbar{
+    background-color:       $navbar-default-bg-color;
+    text-transform:         $navbar-default-text-transform;
+    .toolbar-background{
+      border: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<ion-content padding-left padding-right>
+    <form (ngSubmit)="makeLogin()" novalidate>
+
+        <div container-logo padding-left padding-right>
+            <div logo-app></div>
+        </div>
+
+        <div container-title>
+            Login to your account
+        </div>
+
+        <div container-form padding-left padding-right>
+            <ion-item #emailId>
+                <ion-label> <div class="form-bullet"></div> </ion-label>
+                <ion-input clearInput type="text" name="email" [(ngModel)]="loginUser.email" placeholder="Email"></ion-input>
+            </ion-item>
+            <input-error [errors]="errors.email" [containerInput]="emailId"></input-error>
+
+            <ion-item #passwordId>
+                <ion-label> <div class="form-bullet"></div> </ion-label>
+                <ion-input clearInput type="password" name="password" [(ngModel)]="loginUser.password" placeholder="Password"></ion-input>
+            </ion-item>
+            <input-error [errors]="errors.password" [containerInput]="passwordId"></input-error>
+
+            <div container-buttons>
+                <!--<button button-forgot ion-button round block outline link no-shadow color="light" >Forgot Password?</button>-->
+                <button button-login ion-button round block outline no-shadow color="light" type="submit">LOGIN</button>
+                <!--<button button-facebook ion-button round block outline>Login With Facebook</button>-->
+            </div>
+        </div>
+
+        <div container-create-account padding-left padding-right>
+            <button type="button" button-create-account ion-button round block outline link no-shadow color="light" (click)="goCreateAccount()">
+                SIGN UP
+            </button>
+        </div>
+
+    </form>
+</ion-content>

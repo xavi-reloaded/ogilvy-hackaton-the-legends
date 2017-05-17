@@ -1,0 +1,41 @@
+ion-menu{
+  .menu-inner {
+    ion-content {
+      background-color:     $menu-default-bg-color;
+      ion-list{
+        padding: 0 3px;
+        ion-item {
+          padding: 5px 0;
+          background-color: transparent;
+          color: white;
+          border-bottom: 1px solid white;
+          .item-inner{
+            padding-left: 24px;
+            border-bottom: 0 !important;
+          }
+          &[user-info]{
+            padding-top: 32px;
+            ion-avatar{
+              padding-left: 24px;
+              img{
+                width: 50px;
+                height: 50px;
+                background-color: $menu-default-avatar-bg-color;
+              }
+            }
+            [user-name]{
+              color: white;
+              font-size: 2rem;
+            }
+            [user-year]{
+              color: #e4e4e5;
+            }
+            .item-inner{
+              padding-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[ion-button]{
+  &[no-shadow]{
+    box-shadow: none !important;
+  }
+  &[link]{
+    border: 0 !important;
+    background-color: transparent !important;
+  }
+}

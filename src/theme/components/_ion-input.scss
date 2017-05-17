@@ -1,0 +1,7 @@
+ion-input{
+  input{
+    &:focus{
+      outline: none !important;
+    }
+  }
+}

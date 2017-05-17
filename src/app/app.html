@@ -1,0 +1,24 @@
+<ion-menu [content]="content">
+    <ion-content>
+        <ion-list>
+            <ion-item user-info>
+                <ion-avatar item-left>
+                    <img src="{{'./assets/img/no-img.png'}}">
+                </ion-avatar>
+                <h2 user-name>Laura moore</h2>
+                <p user-year>26 years old</p>
+            </ion-item>
+            <!--<ion-item ion-item menuClose (click)="openPage(homePage)">
+                Home
+            </ion-item>
+            <ion-item ion-item menuClose (click)="openPage(catsPage)">
+                Cats
+            </ion-item>-->
+            <ion-item ion-item menuClose (click)="closeSession()">
+                Close session
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>

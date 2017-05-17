@@ -1,0 +1,94 @@
+page-login {
+  ion-content {
+    background: url(../assets/img/im_background_login.png);
+    background-size: cover;
+    background-position: center top;
+    form {
+      display: flex;
+      min-height: 98vh;
+      flex-direction: column;
+
+      [container-logo] {
+        display: flex;
+        min-height: 200px;
+        max-height: 200px;
+        flex: 1;
+        align-items: center;
+        [logo-app] {
+          background: url(../assets/img/logo_signup_white_min.png);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          height: 50px;
+          width: 100%;
+          display: flex;
+        }
+      }
+      [container-title]{
+        display: flex;
+        justify-content: center;
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      [container-form] {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        ion-item {
+          &.item-ios, &.item-md {
+            background-color: transparent;
+            border: 2px solid $smokeWhite;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            .item-inner{
+              border-bottom: 0 !important;
+              box-shadow: none !important;
+              padding: 0;
+              input{
+                font-size: 1.5rem;
+                height: 40px;
+                margin: 0;
+                color: white;
+                padding-right: 10px;
+              }
+            }
+            &.has-error{
+              border-color: red;
+              .item-inner{
+                border: 0;
+                input{
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+
+        [container-buttons] {
+          margin-top: 20px;
+          [button-login]{
+            margin-bottom: 20px;
+          }
+          [button-forgot], [button-login], [button-facebooK]{
+            height: 45px;
+            font-weight: bold;
+            border-width: 2px;
+          }
+        }
+      }
+
+      [container-create-account]{
+        display: flex;
+        [button-create-account]{
+          font-size: 1.5rem;
+          color: white;
+        }
+      }
+    }
+
+  }
+}

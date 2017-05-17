@@ -1,0 +1,7 @@
+/platforms/
+/node_modules/
+.idea/
+/plugins/
+/www/
+curler-mobile.iml
+src/environment-variables/env-args.ts

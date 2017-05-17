@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons left>
+            <button ion-button menuToggle color="dark">
+                &nbsp;
+            </button>
+        </ion-buttons>
+        <ion-title text-center>Choose a Services</ion-title>
+        <ion-buttons end>
+            <button ion-button menuToggle color="dark">
+                Menu
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list>
+        <div *ngFor="let serviceType of servicesType">
+            <ion-item (click)="onClickServiceType(serviceType)">
+                <ion-avatar item-left>
+                    <img src="{{(serviceType.picture) ? serviceType.picture : './assets/img/no-img.png'}}">
+                </ion-avatar>
+                <h2>{{serviceType.name}}</h2>
+            </ion-item>
+            <div *ngIf="serviceType.opened" >
+                <ion-item sub-item *ngFor="let service of serviceType.services">
+                    {{service.name}}
+                </ion-item>
+            </div>
+        </div>
+    </ion-list>
+
+    <ion-infinite-scroll *ngIf="!allItemsLoaded" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+</ion-content>

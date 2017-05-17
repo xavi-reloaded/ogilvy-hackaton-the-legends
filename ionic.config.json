@@ -1,0 +1,12 @@
+{
+  "name": "curler",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/api/",
+      "proxyUrl": "http://localhost:9000/api/"
+    }
+  ]
+}
